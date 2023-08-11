@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 const App = () =>{
   const [inputValues, setInputValues ] = useState({
     input1:'',
+    input2:'',
 
   });
 
@@ -15,8 +16,9 @@ const App = () =>{
   
   const handleSoma = () => {
 const { input1 } = inputValues;
+const { input2 } = inputValues;
 
-const result = parseInt(input1);
+const result = parseInt(input1) + parseInt(input2);
 
 setSoma(result);
   };
@@ -28,6 +30,14 @@ setSoma(result);
     style={styles.input}
     onChangeText={(value) => handleInputChange('input1', value)}
     value={inputValues.input1}
+    keyboardType='numeric'
+    />
+
+<Text style={styles.label}>Segundo Número:</Text>
+    <TextInput
+    style={styles.input}
+    onChangeText={(value) => handleInputChange('input2', value)}
+    value={inputValues.input2}
     keyboardType='numeric'
     />
 
